@@ -43,9 +43,11 @@ module.exports = function(schema) {
     }
   };
 
-  schema.
-    pre('find', autopopulateHandler).
-    pre('findOne', autopopulateHandler);
+  schema
+    .pre('find', autopopulateHandler)
+    .pre('findOne', autopopulateHandler)
+    .pre('findOneAndRemove', autopopulateHandler)
+    .pre('findOneAndUpdate', autopopulateHandler);
 };
 
 function defaultOptions(pathname, v) {
